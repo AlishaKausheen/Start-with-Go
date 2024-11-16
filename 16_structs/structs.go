@@ -36,6 +36,19 @@ func (o order) getAmount() float32{
 		 return &myOrder3
 	}
 
+
+	//struct embedd
+	type customer struct{
+		name string
+		phone string
+	}
+	type customerOrder struct{
+		id string
+	amount float32
+	status string
+	createdAt time.Time
+	customer
+	}
 func main(){
 
  myOrder := order{
@@ -71,4 +84,17 @@ func main(){
  }{"golang",true}
 
  fmt.Println(language)
+
+ customer1 := customer{
+	name: "Alisha",
+	phone: "90088888",
+ }
+ newCustomerOrder :=customerOrder{
+	id: "4",
+	amount: 300,
+	status: "ask",
+customer: customer1,
+ }
+
+ fmt.Println(newCustomerOrder)
 }
